@@ -1,0 +1,10 @@
+<div class="formulario">
+  <h2>{{ form.id ? 'Editar' : 'Nuevo' }} Contacto</h2>
+
+  <input [(ngModel)]="form.nombre" placeholder="Nombre" required />
+  <input [(ngModel)]="form.telefono" placeholder="Teléfono" required />
+  <textarea [(ngModel)]="form.notas" placeholder="Notas"></textarea>
+
+  <button (click)="guardar()">💾 Guardar</button>
+  <button (click)="cancelar()">Cancelar</button>
+</div>

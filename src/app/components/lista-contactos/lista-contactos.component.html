@@ -1,0 +1,32 @@
+<div class="container">
+  <h1>📒 Agenda de Contactos</h1>
+  <button (click)="nuevo()">+ Nuevo Contacto</button>
+
+  <app-formulario-contacto
+    *ngIf="mostrarFormulario"
+    [contacto]="contactoSeleccionado"
+    (guardado)="alGuardar()">
+  </app-formulario-contacto>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Teléfono</th>
+        <th>Notas</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let c of contactos">
+        <td>{{ c.nombre }}</td>
+        <td>{{ c.telefono }}</td>
+        <td>{{ c.notas }}</td>
+        <td>
+          <button (click)="editar(c)">✏️ Editar</button>
+          <button (click)="eliminar(c.id!)">🗑️ Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

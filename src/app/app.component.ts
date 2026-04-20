@@ -1,12 +1,10 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { ListaContactosComponent } from './components/lista-contactos/lista-contactos.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  standalone: true,
+  imports: [ListaContactosComponent], 
+  templateUrl: './app.component.html'
 })
-export class AppComponent {
-  title = 'agenda_contactos';
-}
+export class AppComponent {}
