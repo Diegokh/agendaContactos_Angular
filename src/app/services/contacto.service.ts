@@ -6,6 +6,8 @@ import { Contacto } from '../models/contacto'
 @Injectable({ providedIn: 'root' })
 export class ContactoService {
   private apiUrl = 'http://localhost:3000/contactos';
+  private uploadUrl = 'http://localhost:3000/upload';
+  private imageBaseUrl = 'http://localhost:3000/uploads';
 
   constructor(private http: HttpClient) {}
 
@@ -23,5 +25,15 @@ export class ContactoService {
 
   delete(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
+  }
+
+  uploadImage(file: File): Observable<{ fileName: string }> {
+    const formData = new FormData();
+    formData.append('file', file);
+    return this.http.post<{ fileName: string }>(this.uploadUrl, formData);
+  }
+
+  getImageUrl(fileName: string): string {
+    return `${this.imageBaseUrl}/${fileName}`;
   }
 }

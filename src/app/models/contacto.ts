@@ -3,4 +3,5 @@ export interface Contacto {
   nombre: string;
   telefono: string;
   notas: string; 
+  foto?: string;
 }

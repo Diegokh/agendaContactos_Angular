@@ -49,6 +49,10 @@ export class ListaContactosComponent implements OnInit {
     }
   }
 
+  getImageUrl(fileName: string): string {
+    return this.contactoService.getImageUrl(fileName);
+  }
+
   alGuardar() {
     this.mostrarFormulario = false;
     this.cargar();
